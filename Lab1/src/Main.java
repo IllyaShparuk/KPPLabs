@@ -4,5 +4,11 @@ public class Main {
         System.out.println(textAnalyzer.countWords());
         System.out.println(textAnalyzer.originalWordsCount());
         System.out.println(textAnalyzer.countSentences());
+        System.out.println(textAnalyzer.countPunctuations());
+        System.out.println(textAnalyzer.calculateWordsAverage());
+        System.out.println(textAnalyzer.calculateSentencesAverage());
+
+        System.out.println("Top 10 words:");
+        textAnalyzer.firstTenPopulatedWordsCount();
     }
 }
