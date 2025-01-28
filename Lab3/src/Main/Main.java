@@ -2,7 +2,7 @@ package Main;
 
 import GameOfLife.Grid;
 
-import java.io.IOException;
+import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,21 +31,17 @@ public class Main {
         boolean programIsRunning = true;
         int generation = 0;
         do {
-            System.out.println("Generation #" + ++generation);
-            System.out.println("Live cells: " + grid.getLiveCells());
             grid.setGrid(grid.nextGeneration());
             Grid.printGrid(grid.getGrid());
-            try {
-                char c = (char) System.in.read();
-                clearConsole();
-                if (c == '\n') {
-                    System.out.println("Next Generation");
-                }
-                else {
-                    programIsRunning = false;
-                }
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            System.out.println("Generation #" + ++generation);
+            System.out.println("Live cells: " + grid.getLiveCells());
+            String c = System.console().readLine();
+            clearConsole();
+            if (Objects.equals(c, "")) {
+                System.out.println("Next Generation");
+            }
+            else {
+                programIsRunning = false;
             }
         } while (programIsRunning);
     }

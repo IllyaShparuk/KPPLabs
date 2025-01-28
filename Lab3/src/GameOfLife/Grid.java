@@ -90,10 +90,10 @@ public class Grid {
         for (int[] row : grid) {
             for (int cell : row)
                 if (cell != 0) {
-                    System.out.print(YELLOW_BACKGROUND + " " + ANSI_RESET);
+                    System.out.print(YELLOW_BACKGROUND + " " + ANSI_RESET + " ");
                     liveCells++;
                 }
-                else System.out.print(BLACK_BACKGROUND + " " + ANSI_RESET);
+                else System.out.print(BLACK_BACKGROUND + " " + ANSI_RESET + " ");
             System.out.println();
         }
         System.out.println();
