@@ -54,7 +54,8 @@ public class TextAnalyzer {
     public void firstTenPopulatedWordsCount(@Nullable PrintWriter writer) {
         Map<String, Long> wordFrequency = new HashMap<>();
         for (String word : words) {
-            wordFrequency.put(word, wordFrequency.getOrDefault(word, 0L) + 1);
+            String lowerCase = word.toLowerCase();
+            wordFrequency.put(lowerCase, wordFrequency.getOrDefault(lowerCase, 0L) + 1);
         }
         var topTenWords = wordFrequency.entrySet().stream()
                 .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue()))

@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
@@ -21,18 +22,19 @@ public class Main {
 
         TextAnalyzer textAnalyzer = new TextAnalyzer(directory + filename);
         try {
-            PrintWriter writer = new PrintWriter("result.txt", StandardCharsets.UTF_8);
+            String fileName = "Lab1" + File.separator + "result.txt";
+            PrintWriter writer = new PrintWriter(fileName, StandardCharsets.UTF_8);
             writer.println("Word Count: " + textAnalyzer.countWords());
             writer.println("Original Word Count: " + textAnalyzer.originalWordsCount());
             writer.println("Sentence Count: " + textAnalyzer.countSentences());
-            writer.println("Punctuation Count" + textAnalyzer.countPunctuations());
-            writer.println("Word's Average Length: " + textAnalyzer.calculateWordsAverage());
-            writer.println("Sentence's Average Length: " + textAnalyzer.calculateSentencesAverage());
+            writer.println("Punctuation Count: " + textAnalyzer.countPunctuations());
+            writer.println("Words Average Length: " + textAnalyzer.calculateWordsAverage());
+            writer.println("Sentences Average Length: " + textAnalyzer.calculateSentencesAverage());
             writer.println("\nTop 10 words:");
             textAnalyzer.firstTenPopulatedWordsCount(writer);
             writer.close();
 
-            System.out.println("\nResult is written to result file");
+            System.out.println("\nResult is written to result file: " + fileName);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
