@@ -3,9 +3,9 @@ package GameOfLife;
 import java.util.Random;
 
 public class Grid {
-    static final String ANSI_RESET = "\u001B[0m";
-    static final String YELLOW_BACKGROUND = "\u001B[43m";
-    static final String BLACK_BACKGROUND = "\u001B[40m";
+    static final String ANSI_RESET = "\033[0m";
+    static final String YELLOW_BACKGROUND = "\033[0;103m";
+    static final String BLACK_BACKGROUND = "\033[40m";
     private int[][] grid;
     private final int rows;
     private final int cols;
