@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Grid {
     static final String ANSI_RESET = "\033[0m";
-    static final String YELLOW_BACKGROUND = "\033[0;103m";
+    static final String YELLOW_BACKGROUND = "\033[1;33m";
     static final String BLACK_BACKGROUND = "\033[40m";
     private int[][] grid;
     private final int rows;
@@ -88,12 +88,13 @@ public class Grid {
     public static void printGrid(int[][] grid) {
         liveCells = 0;
         for (int[] row : grid) {
-            for (int cell : row)
+            for (int cell : row) {
                 if (cell != 0) {
-                    System.out.print(YELLOW_BACKGROUND + " " + ANSI_RESET + " ");
+                    System.out.print(YELLOW_BACKGROUND + "*");
                     liveCells++;
-                }
-                else System.out.print(BLACK_BACKGROUND + " " + ANSI_RESET + " ");
+                } else System.out.print(BLACK_BACKGROUND + " ");
+                System.out.print(ANSI_RESET + " ");
+            }
             System.out.println();
         }
         System.out.println();
