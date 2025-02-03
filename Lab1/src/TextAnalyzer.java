@@ -38,20 +38,20 @@ public class TextAnalyzer {
     }
 
     public long originalWordsCount() {
-        return Arrays.stream(words).map(word -> word.toLowerCase()).distinct().count();
+        return Arrays.stream(words).map(String::toLowerCase).distinct().count();
     }
 
-    public long calculateWordsAverage() {
+    public double calculateWordsAverage() {
         if (words.length == 0) return 0;
-        return Arrays.stream(words).mapToInt(word -> word.length()).sum() / words.length;
+        return Arrays.stream(words).mapToDouble(String::length).sum() / words.length;
     }
 
-    public long calculateSentencesAverage() {
+    public double calculateSentencesAverage() {
         if (sentences.length == 0) return 0;
-        return Arrays.stream(sentences).mapToInt(sentence -> sentence.split("\\W+").length).sum() / sentences.length;
+        return (double) words.length / sentences.length;
     }
 
-    public void firstTenPopulatedWordsCount(@Nullable PrintWriter writer) {
+    public void firstTenPopularWordsCount(@Nullable PrintWriter writer) {
         Map<String, Long> wordFrequency = new HashMap<>();
         for (String word : words) {
             String lowerCase = word.toLowerCase();

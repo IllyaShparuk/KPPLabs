@@ -31,7 +31,7 @@ public class Main {
             writer.println("Words Average Length: " + textAnalyzer.calculateWordsAverage());
             writer.println("Sentences Average Length: " + textAnalyzer.calculateSentencesAverage());
             writer.println("\nTop 10 words:");
-            textAnalyzer.firstTenPopulatedWordsCount(writer);
+            textAnalyzer.firstTenPopularWordsCount(writer);
             writer.close();
 
             System.out.println("\nResult is written to result file: " + fileName);
