@@ -29,16 +29,19 @@ public class Main {
         else grid = new Grid(rows, columns);
         grid.setGrid(Grid.generateGrid(grid.getRows(), grid.getCols()));
         boolean programIsRunning = true;
-        int generation = 0;
         do {
             grid.setGrid(grid.nextGeneration());
             Grid.printGrid(grid.getGrid());
-            System.out.println("Generation #" + ++generation);
+            System.out.println("Generation #" + grid.getGeneration());
             System.out.println("Live cells: " + grid.getLiveCells());
             String c = System.console().readLine();
             clearConsole();
             if (Objects.equals(c, "")) {
                 System.out.println("Next Generation");
+            }
+            else if (Objects.equals(c.toLowerCase(), "r")) {
+                grid.resetGeneration();
+                grid.setGrid(Grid.generateGrid(grid.getRows(), grid.getCols()));
             }
             else {
                 programIsRunning = false;

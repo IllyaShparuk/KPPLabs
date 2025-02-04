@@ -10,6 +10,7 @@ public class Grid {
     private final int rows;
     private final int cols;
     private static int liveCells;
+    private int generation;
     int[][] directions = {{0, 1}, {1, 0},
             {0, -1}, {-1, 0},
             {1, 1}, {-1, -1},
@@ -19,12 +20,14 @@ public class Grid {
         this.rows = rows;
         this.cols = cols;
         grid = new int[this.rows][this.cols];
+        resetGeneration();
     }
 
     public Grid() {
         this.rows = 10;
         this.cols = 10;
         grid = new int[this.rows][this.cols];
+        resetGeneration();
     }
 
     public int[][] getGrid() {
@@ -45,6 +48,14 @@ public class Grid {
 
     public int getLiveCells() {
         return liveCells;
+    }
+
+    public void resetGeneration() {
+        generation = 0;
+    }
+
+    public int getGeneration() {
+        return ++generation;
     }
 
     public static int[][] generateGrid(int rows, int cols) {

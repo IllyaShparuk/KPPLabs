@@ -12,8 +12,10 @@ public class Main {
         chooseAFile.setFilenameFilter((_, name) -> name.endsWith(".txt"));
         String filename = chooseAFile.getFile();
         String directory = chooseAFile.getDirectory();
-        if (filename == null && directory == null)
+        if (filename == null && directory == null) {
             System.out.println("You cancelled the choice");
+            return;
+        }
         else
             System.out.println("You chose " + filename);
         chooseAFile.dispose();
