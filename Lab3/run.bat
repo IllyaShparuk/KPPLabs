@@ -1,4 +1,5 @@
 @echo off
-cd src || exit
-javac GameOfLife\Grid.java Main\Main.java
-java Main.Main
+
+if not exist out mkdir out
+javac -d out src/GameOfLife/*.java src/Main/*.java
+java -cp out Main.Main

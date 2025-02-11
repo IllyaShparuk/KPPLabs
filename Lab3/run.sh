@@ -1,4 +1,4 @@
 #!/bin/bash
-cd src || exit
-javac GameOfLife/Grid.java Main/Main.java
-java Main.Main
+mkdir -p out
+javac -d out src/*/*.java
+java -cp out Main.Main
