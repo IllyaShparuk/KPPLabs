@@ -49,6 +49,7 @@ public class Main {
         } while (programIsRunning);
     }
 
+    /// [Link to source](https://intellipaat.com/blog/java-clear-the-console/#method2-platform-specific-command)
     public static void clearConsole() {
         try {
             final String os = System.getProperty("os.name").toLowerCase();

@@ -1,8 +1,5 @@
-import org.apache.commons.io.IOUtils;
-import org.jetbrains.annotations.Nullable;
-
 import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,8 +11,8 @@ public class TextAnalyzer {
 
     public TextAnalyzer(String fileName) {
         try {
-            FileInputStream fileReader = new FileInputStream(fileName);
-            text = IOUtils.toString(fileReader, StandardCharsets.UTF_8);
+            File file = new File(fileName);
+            text = Files.readString(file.toPath());
             System.out.println("\nYour text is: " + text);
             words = text.split("\\W+");
             sentences = text.split("(?<=[.!?])\\s+(?=[A-Z\"'])");
@@ -24,6 +21,7 @@ public class TextAnalyzer {
             throw new RuntimeException(e);
         }
     }
+
 
     public long countPunctuations() {
         return text.chars().filter(c -> "\",.;:!?-".indexOf(c) >= 0).count();
@@ -51,7 +49,7 @@ public class TextAnalyzer {
         return (double) words.length / sentences.length;
     }
 
-    public void firstTenPopularWordsCount(@Nullable PrintWriter writer) {
+    public void firstTenPopularWordsCount(PrintWriter writer) {
         Map<String, Long> wordFrequency = new HashMap<>();
         for (String word : words) {
             String lowerCase = word.toLowerCase();
