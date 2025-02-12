@@ -23,8 +23,8 @@ public class Main {
             writer.println("Original Word Count: " + textAnalyzer.originalWordsCount());
             writer.println("Sentence Count: " + textAnalyzer.countSentences());
             writer.println("Punctuation Count: " + textAnalyzer.countPunctuations());
-            writer.println("Words Average Length: " + textAnalyzer.calculateWordsAverage());
-            writer.println("Sentences Average Length: " + textAnalyzer.calculateSentencesAverage());
+            writer.println("Words Average Length: " + String.format("%.2f", textAnalyzer.calculateWordsAverage()));
+            writer.println("Sentences Average Length: " + String.format("%.2f", textAnalyzer.calculateSentencesAverage()));
             writer.println("\nTop 10 words:");
             textAnalyzer.firstTenPopularWordsCount(writer);
             writer.close();

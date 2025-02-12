@@ -58,11 +58,6 @@ public class TextAnalyzer {
         var topTenWords = wordFrequency.entrySet().stream()
                 .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue()))
                 .limit(10);
-        if (writer == null) {
-            topTenWords.forEach(e -> System.out.println(e.getKey() + " " + e.getValue()));
-        } else {
-            topTenWords.forEach(e -> writer.println(e.getKey() + " " + e.getValue()));
-        }
-
+        topTenWords.forEach(e -> writer.println(e.getKey() + " " + e.getValue()));
     }
 }
