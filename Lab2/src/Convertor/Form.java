@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import static javax.swing.JOptionPane.*;
 
 public class Form {
-    private JPanel contentPanel; // Основна панель
+    private JPanel contentPanel;
     private JButton clearButton;
     private JButton convertButton;
     private JComboBox<String> measurementComboBox;
@@ -21,9 +21,9 @@ public class Form {
     private Unit unit;
 
     public Form() {
-        JFrame frame = new JFrame("Unit Converter"); // Назва вікна
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Закриття програми при закритті вікна
-        frame.setSize(800, 600); // Розмір вікна
+        JFrame frame = new JFrame("Unit Converter");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
         frame.setContentPane(getContentPanel());
         frame.setLocationRelativeTo(null);
         equalsSign.setFont(new Font(equalsSign.getFont().getFontName(), Font.BOLD, 36));
@@ -63,14 +63,22 @@ public class Form {
 
     private void convertUnits(ActionEvent e) {
         try {
+            if (unit == null) {
+                showMessageDialog(null,
+                        "You must select a unit",
+                        "Error",
+                        ERROR_MESSAGE
+                );
+                return;
+            }
             String text = fromLabel.getText();
             double i = Double.parseDouble(text);
             toLabel.setText(String.valueOf(unit.convert(i, unitsComboBox.getItemAt(unitsComboBox.getSelectedIndex()))));
         } catch (NumberFormatException ex) {
-            showMessageDialog(null, // Вікно-контейнер
+            showMessageDialog(null,
                     "Your input has invalid characters",
                     "Error",
-                    ERROR_MESSAGE // Піктограма
+                    ERROR_MESSAGE
             );
         }
 
