@@ -74,11 +74,8 @@ public class Grid {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 int live = 0;
-
-                // Count the number of live neighbors
                 for (int[] dir : directions) {
                     int x = i + dir[0], y = j + dir[1];
-
                     if (x >= 0 && x < rows && y >= 0 && y < cols
                             && (grid[x][y] == 1)) {
                         live++;

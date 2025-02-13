@@ -2,8 +2,6 @@ package Main;
 
 import GameOfLife.Grid;
 
-import java.util.Objects;
-
 public class Main {
     public static void main(String[] args) {
         clearConsole();
@@ -23,6 +21,12 @@ public class Main {
                 correct = true;
             } catch (NumberFormatException e) {
                 System.out.println("Invalid number of rows or columns!");
+                System.out.println("Want to continue to with 10x10 grid? [y/Y - to continue]\n" +
+                        "Press any key to set your number of rows or columns");
+                String answer = System.console().readLine();
+                if (answer.equalsIgnoreCase("y")) {
+                    correct = true;
+                }
             }
         }
         if (rows <= 0 || columns <= 0) grid = new Grid();
@@ -36,10 +40,10 @@ public class Main {
             System.out.println("Live cells: " + grid.getLiveCells());
             String c = System.console().readLine();
             clearConsole();
-            if (Objects.equals(c, "")) {
+            if (c.trim().isEmpty()) {
                 System.out.println("Next Generation");
             }
-            else if (Objects.equals(c.toLowerCase(), "r")) {
+            else if (c.equalsIgnoreCase("r")) {
                 grid.resetGeneration();
                 grid.setGrid(Grid.generateGrid(grid.getRows(), grid.getCols()));
             }
