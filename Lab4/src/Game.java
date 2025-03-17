@@ -13,6 +13,7 @@ public class Game {
     public Game() {
         int totalWins = 0;
         int totalLosses = 0;
+        final int[][] winMatrix = {{0, 1, -1}, {-1, 0, 1}, {1, -1, 0}};
         Scanner scanner = new Scanner(System.in);
         while (true) {
             globalHistory = loadGlobalHistory();
@@ -24,7 +25,6 @@ public class Game {
 
             HashMap<String, Integer> history = loadHistory(mode);
             int userWins = 0, computerWins = 0;
-            final int[][] winMatrix = {{0, 1, -1}, {-1, 0, 1}, {1, -1, 0}};
             for (int i = 0; i < rounds; i++) {
                 System.out.print("Ваш хід (0-Криниця, 1-Ножиці, 2-Папір): ");
                 int userChoice = scanner.nextInt();
