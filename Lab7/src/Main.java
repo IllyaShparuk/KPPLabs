@@ -68,7 +68,7 @@ public class Main {
         System.out.println();
 
         for (int i = 0; i < SIZE; i++) {
-            System.out.printf(format + " ", i);
+            System.out.printf(format + " ".repeat(indent - 1), i);
             for (int j = 0; j < SIZE; j++) {
                 System.out.print(board[i][j] + " ".repeat(indent));
             }
