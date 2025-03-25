@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 public class ATMForm {
     private JPanel contentPanel;
@@ -36,6 +35,10 @@ public class ATMForm {
             String accountId = accountIdField.getText();
             if (accountId.isEmpty()) {
                 JOptionPane.showMessageDialog(frame, "ID рахунку не може бути порожнім!");
+                return;
+            }
+            if (bank.getAccount(accountId)  == null) {
+                JOptionPane.showMessageDialog(frame, "Рахунку " + accountId +  " не знайдено!");
                 return;
             }
             bank.closeAccount(accountId);
