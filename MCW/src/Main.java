@@ -15,7 +15,7 @@ public class Main {
         try {
             num1 = Long.parseLong(args[0]);
             num2 = Long.parseLong(args[1]);
-        } catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
+        } catch (ArrayIndexOutOfBoundsException | NumberFormatException _) {
             Scanner scanner = new Scanner(System.in);
             while (true) {
                 try {
@@ -28,7 +28,7 @@ public class Main {
                         continue;
                     }
                     break;
-                } catch (InputMismatchException mismatch) {
+                } catch (InputMismatchException _) {
                     System.out.println("Спробуйте ввести натуральне число!");
                     scanner.nextLine();
                 }
