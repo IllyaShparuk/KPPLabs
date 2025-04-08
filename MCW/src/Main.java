@@ -15,6 +15,10 @@ public class Main {
         try {
             num1 = Long.parseLong(args[0]);
             num2 = Long.parseLong(args[1]);
+            if (num1 < 0 || num2 < 0) {
+                System.out.println("Числа повинні бути натуральними!");
+                throw new NumberFormatException();
+            }
         } catch (ArrayIndexOutOfBoundsException | NumberFormatException _) {
             Scanner scanner = new Scanner(System.in);
             while (true) {
