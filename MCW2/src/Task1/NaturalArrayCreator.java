@@ -28,7 +28,10 @@ public class NaturalArrayCreator {
             try {
                 System.out.print("Введіть режим (1 або 2): ");
                 mode = scanner.nextInt();
-
+                if (mode < 1 || mode > 2){
+                    System.err.println("Незрозумілий режим");
+                    continue;
+                }
                 System.out.print("Введіть розмір масиву: ");
                 size = scanner.nextInt();
 
